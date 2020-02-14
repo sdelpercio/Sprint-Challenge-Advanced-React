@@ -10,17 +10,36 @@ const StyledCanvas = styled.canvas`
 	left: 0;
 	z-index: -1;
 `;
+const StyledHeader = styled.div`
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+`;
+const StyledButton = styled.button`
+	background-color: #75e6da;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 3px;
+
+	&:hover {
+		color: #75e6da;
+		background-color: #189ab4;
+	}
+`;
 
 const Header = () => {
 	const [goal, setGoal] = useGOAL(0);
 
 	return (
-		<div>
+		<StyledHeader>
 			<h1>Women's Football Statistics</h1>
-			<StyledCanvas id='goal-confetti' />
-			<button onClick={() => setGoal(goal + 1)}>GOAAAAAAAAALLLLLLLLLL</button>
+			<StyledCanvas data-testid='goal-confetti' id='goal-confetti' />
+			<StyledButton onClick={() => setGoal(goal + 1)}>
+				GOAAAAAAAAALLLLLLLLLL
+			</StyledButton>
 			<h1># of GOALS: {goal}</h1>
-		</div>
+		</StyledHeader>
 	);
 };
 export default Header;
